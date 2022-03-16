@@ -24,7 +24,7 @@ const commonOptions = {
 // query function for useQuery call
 async function getAppointments(
   year: string,
-  month: string,
+  month: string
 ): Promise<AppointmentDateMap> {
   const { data } = await axiosInstance.get(`/appointments/${year}/${month}`);
   return data;
@@ -86,7 +86,7 @@ export function useAppointments(): UseAppointments {
     queryClient.prefetchQuery(
       [queryKeys.appointments, nextMonthYear.year, nextMonthYear.month],
       () => getAppointments(nextMonthYear.year, nextMonthYear.month),
-      commonOptions,
+      commonOptions
     );
   }, [queryClient, monthYear]);
 
@@ -108,7 +108,7 @@ export function useAppointments(): UseAppointments {
       refetchOnReconnect: true,
       refetchOnWindowFocus: true,
       refetchInterval: 60000, // 60 seconds
-    },
+    }
   );
 
   /** ****************** END 3: useQuery  ******************************* */

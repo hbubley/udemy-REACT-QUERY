@@ -23,7 +23,7 @@ export function useAuth(): UseAuth {
   async function authServerCall(
     urlEndpoint: string,
     email: string,
-    password: string,
+    password: string
   ): Promise<void> {
     try {
       const {
